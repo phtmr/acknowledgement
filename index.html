@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Executive Compensation Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+:root {
+  --motherson-red:#c4161c;
+  --dark-red:#9f1115;
+  --charcoal:#2b2b2b;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+  background:linear-gradient(-45deg,#c4161c,#ffffff,#9f1115,#f7f7f7);
+  background-size:400% 400%;
+  animation:gradientFlow 20s ease infinite;
+  color:var(--charcoal);
+}
+
+@keyframes gradientFlow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.slide{
+  min-height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+  animation:fadeUp .6s ease;
+}
+.active{display:flex}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.card{
+  background:#fff;
+  max-width:820px;
+  width:100%;
+  padding:50px;
+  border-radius:16px;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  border-top:6px solid var(--motherson-red);
+  position:relative;
+}
+
+.logo{max-width:180px;margin-bottom:25px}
+
+h1,h2{color:var(--motherson-red);margin-bottom:16px}
+p,li{font-size:16px;line-height:1.6}
+
+ul{padding-left:20px}
+
+.buttons{
+  margin-top:35px;
+  display:flex;
+  gap:20px;
+}
+
+button{
+  padding:14px 28px;
+  font-size:16px;
+  border-radius:8px;
+  border:none;
+  cursor:pointer;
+  transition:.25s ease;
+  min-width:140px;
+}
+
+button:hover{transform:translateY(-2px)}
+
+.approval{background:var(--motherson-red);color:#fff}
+.approval:hover{background:var(--dark-red)}
+
+.disapproval{
+  background:#e6e6e6;
+  color:#333;
+  position:relative;
+}
+
+.footer-note{
+  margin-top:25px;
+  font-size:13px;
+  color:#666;
+  font-style:italic;
+}
+
+.center{text-align:center}
+.gif{max-width:280px;margin-top:25px}
+
+.download{
+  margin-top:30px;
+  background:var(--motherson-red);
+  color:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SLIDE 1 -->
+<div class="slide active">
+  <div class="card">
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Motherson_Group_logo.svg">
+    <h1>Executive Compensation Discussion</h1>
+    <p><strong>Presented by:</strong> Ashlay Steve</p>
+    <p><strong>For:</strong> Mr. Ankit Bansal</p>
+    <p>
+      This proposal summarizes performance contribution, return on investment,
+      and forward alignment — with emphasis on consistency, ownership, and impact.
+    </p>
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Proceed</button>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2 -->
+<div class="slide">
+  <div class="card">
+    <h2>Compensation Review Request</h2>
+    <p>
+      Based on responsibilities assumed, outcomes delivered, and execution
+      consistency, may we consider a compensation adjustment aligned with role
+      contribution?
+    </p>
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Approval</button>
+      <button class="disapproval" id="noBtn">Disapproval</button>
+    </div>
+    <div class="footer-note">
+      *Disapproval remains dynamically unavailable.
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3 -->
+<div class="slide">
+  <div class="card">
+    <h2>ROI Justification</h2>
+    <ul>
+      <li>Consistent execution with reduced oversight</li>
+      <li>Ownership of high-impact deliverables</li>
+      <li>Lower operational friction</li>
+      <li>Predictable outcomes in dynamic environments</li>
+      <li>Optimized leadership bandwidth</li>
+    </ul>
+    <p class="footer-note">
+      ROI = Results, Ownership, and Initiative.
+    </p>
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- KPI SLIDE -->
+<div class="slide">
+  <div class="card">
+    <h2>Key Performance Indicators (Snapshot)</h2>
+    <ul>
+      <li>Delivery Reliability Index: <strong>98.2%</strong></li>
+      <li>Stakeholder Satisfaction: <strong>Consistently Positive</strong></li>
+      <li>Escalation Frequency: <strong>Minimal</strong></li>
+      <li>Deadline Adherence: <strong>Above Industry Average</strong></li>
+    </ul>
+    <p class="footer-note">
+      Metrics reviewed, validated, and suitably executive-ready.
+    </p>
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+</div>
+
+<!-- BUDGET NEUTRAL SLIDE -->
+<div class="slide">
+  <div class="card">
+    <h2>Budget Neutral Impact</h2>
+    <ul>
+      <li>No incremental headcount impact</li>
+      <li>No increase in operational overhead</li>
+      <li>Improved output per cost unit</li>
+      <li>Positive morale with zero CAPEX</li>
+    </ul>
+    <p class="footer-note">
+      Financially responsible. Organizationally motivating.
+    </p>
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Continue</button>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE -->
+<div class="slide">
+  <div class="card center">
+    <h2>Decision Acknowledgement</h2>
+    <p>
+      Strategic decisions enable sustained performance and long-term engagement.
+    </p>
+    <img class="gif" src="https://media.giphy.com/media/26gsjCZpPolPr3sBy/giphy.gif">
+    <div class="buttons">
+      <button class="approval" onclick="nextSlide()">Final Note</button>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL SLIDE -->
+<div class="slide">
+  <div class="card center">
+    <h2>Thank You for Your Time</h2>
+    <p>
+      I appreciate the consideration and the opportunity to continue contributing
+      at a high level.
+    </p>
+    <button class="download" onclick="downloadPDF()">Download PDF</button>
+  </div>
+</div>
+
+<script>
+const slides=document.querySelectorAll(".slide");
+
+function nextSlide(){
+  let current=[...slides].findIndex(s=>s.classList.contains("active"));
+  slides[current].classList.remove("active");
+  slides[current+1].classList.add("active");
+  window.scrollTo(0,0);
+}
+
+// Harder-to-click Disapproval
+const noBtn=document.getElementById("noBtn");
+if(noBtn){
+  noBtn.addEventListener("mouseenter",()=>{
+    const x=Math.random()*160-80;
+    const y=Math.random()*80-40;
+    noBtn.style.transform=`translate(${x}px,${y}px)`;
+  });
+}
+
+// Simple PDF
+function downloadPDF(){
+  const temp=document.createElement("div");
+  temp.innerHTML="<h1 style='text-align:center;'>Thank You</h1>";
+  document.body.appendChild(temp);
+  html2pdf().from(temp).save().then(()=>document.body.removeChild(temp));
+}
+</script>
+
+</body>
+</html>
